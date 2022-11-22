@@ -1,3 +1,3 @@
 <template>
-  <p>Hello Here Is About page</p>
+  <p>This is list of API key for each country</p>
 </template>

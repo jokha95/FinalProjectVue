@@ -71,7 +71,7 @@ button:focus-visible {
 }
 
 #app {
-  background-color: aqua;
+  background-color: rgb(194, 150, 223);
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
