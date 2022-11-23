@@ -4,6 +4,8 @@ import Todos from "./components/Todos.vue";
 
 <template>
   <header>
+    <h1>Countries API</h1>
+
     <RouterLink to="/">Home<br /></RouterLink> <br /><br />
     <RouterLink :to="{ name: 'about' }">about<br /></RouterLink>
   </header>

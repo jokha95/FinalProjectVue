@@ -18,36 +18,6 @@ function goto(country) {
 </script>
 
 <template>
-  <header>
-    <h1>Countries API</h1>
-  </header>
-  <div>
-    <div id="filters" class="container-fluid px-5">
-      <div class="row">
-        <div class="input-group col-5">
-          <span class="input-group-append">
-            <button
-              class="btn border-right-0 border shadow-none"
-              style="border-radius: 5px 0px 0px 5px"
-              type="button"
-            >
-              search
-              <!-- <b-icon-search /> -->
-            </button>
-          </span>
-          <input
-            class="form-control border-left-0 border shadow-none"
-            type="search"
-            placeholder="Search for a country"
-            style="border-radius: 0px 5px 5px 0px"
-            id="example-search-input"
-            v-on:input="debounceInput"
-          />
-          <!-- v-model="country_name" -->
-        </div>
-      </div>
-    </div>
-  </div>
   <section class="countries">
     <div
       class="countries-wrapper"
@@ -95,7 +65,7 @@ header {
 
 .card {
   width: 300px;
-  height: 250px;
+  height: 350px;
   cursor: pointer;
   border-radius: 16px;
   box-shadow: 0 0 13px 0px rgba(0, 0, 0, 0.3);
