@@ -15,11 +15,12 @@ const routes = [
     name: "about",
     component: AboutPage,
   },
-  //   {
-  //     path: "/",
-  //     name: "country",
-  //     component: CountryPage,
-  //   },
+  {
+    path: "/country/:name",
+    name: "country-detail",
+    props: true,
+    component: DetailPage,
+  },
   //   {
   //     path: "/",
   //     name: "detil",
