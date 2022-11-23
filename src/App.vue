@@ -15,7 +15,8 @@ import Todos from "./components/Todos.vue";
     <!-- <Layout class="async-component" /> -->
 
     <template #fallback>
-      <SimpleLoading class="async-component" />
+      ...loading
+      <!-- <SimpleLoading class="async-component" /> -->
     </template>
   </Suspense>
 </template>

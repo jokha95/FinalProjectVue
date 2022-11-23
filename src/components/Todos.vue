@@ -1,61 +1,20 @@
-<script>
-import { toRefs, reactive } from "vue";
+<script setup>
+import { ref } from "vue";
+import { useRouter } from "vue-router";
 
-export default {
-  // methods: {
-  //   details(country) {
-  //     console.log(country);
-  //     this.$country.setCountry(country);
-  //     this.$router.push({
-  //       name: "country",
-  //       params: { countryInfo: country.name.common },
-  //     });
-  //   },
-  // },
-  name: "App",
+const router = useRouter();
+const countries = ref({});
 
-  setup() {
-    const state = reactive({
-      countriesName: {},
-      countries: "",
-    });
+fetch("https://countriesnow.space/api/v0.1/countries/flag/images")
+  .then((response) => response.json())
+  .then((data) => {
+    //console.log(data.data[1].flag);
+    countries.value = data.data;
+  });
 
-    console.log(state.countries);
-
-    fetch("https://countriesnow.space/api/v0.1/countries/flag/images")
-      .then((response) => response.json())
-      .then((data) => {
-        //console.log(data.data[1].flag);
-        state.countriesName = data.data;
-      });
-
-    //   methods: {
-    // async fetchByName() {
-    //   if (this.country_name === "") {
-    //     this.mycountries = this.allCountries;
-    //   } else {
-    //     try {
-    //       const response = await this.axios.get(
-    //         "https://restcountries.com/v3.1/name/" + this.country_name
-    //       );
-    //       this.mycountries = response.data;
-    //     } catch (e) {
-    //       console.log(e);
-    //     }
-    //   }
-    // },
-
-    // debounceInput: _.debounce(function () {
-    //   this.fetchByName();
-    // }, 400),
-
-    return {
-      // country_name: "",
-
-      ...toRefs(state),
-    };
-  },
-};
+function goto(country) {
+  router.push({ name: "country-detail", params: { name: country.name } });
+}
 </script>
 
 <template>
@@ -72,7 +31,8 @@ export default {
               style="border-radius: 5px 0px 0px 5px"
               type="button"
             >
-              <b-icon-search />
+              search
+              <!-- <b-icon-search /> -->
             </button>
           </span>
           <input
@@ -82,8 +42,8 @@ export default {
             style="border-radius: 0px 5px 5px 0px"
             id="example-search-input"
             v-on:input="debounceInput"
-            v-model="country_name"
           />
+          <!-- v-model="country_name" -->
         </div>
       </div>
     </div>
@@ -91,17 +51,21 @@ export default {
   <section class="countries">
     <div
       class="countries-wrapper"
-      v-for="(countries, idx) in countriesName"
+      v-for="(country, idx) in countries"
       :key="idx"
     >
       <div class="card">
-        <img :src="countries.flag" v-on:click="details(country)" />
-        <!-- <RouterLink :to="{ name: 'detil' }">detil<br /></RouterLink> -->
+        <img :src="country.flag" @click="goto(country)" />
+        <RouterLink
+          :to="{ name: 'country-detail', params: { name: country.name } }"
+        >
+          country detail
+        </RouterLink>
 
         <div class="card-body">
-          <h2>{{ countries.name }}</h2>
-          <p>Alpha-2 code: {{ countries.iso2 }}</p>
-          <p>Alpha-3 code: {{ countries.iso3 }}</p>
+          <h2>{{ country.name }}</h2>
+          <p>Alpha-2 code: {{ country.iso2 }}</p>
+          <p>Alpha-3 code: {{ country.iso3 }}</p>
         </div>
       </div>
     </div>
