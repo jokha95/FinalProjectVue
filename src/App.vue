@@ -3,7 +3,7 @@ import Todos from "./components/productList.vue";
 </script>
 
 <template>
-  <input
+  <!-- <input
     class="form-control border-left-0 border shadow-none"
     type="search"
     placeholder="Search for a products"
@@ -11,7 +11,7 @@ import Todos from "./components/productList.vue";
     id="example-search-input"
     v-on:input="debounceInput"
     v-model="country_name"
-  />
+  /> -->
   <header>
     <h1>Seeling products App by API</h1>
 
