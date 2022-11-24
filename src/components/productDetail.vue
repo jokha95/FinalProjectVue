@@ -1,5 +1,6 @@
 <script setup>
 import { ref, toRef, watch } from "vue";
+
 const props = defineProps(["id"]);
 const emit = defineEmits(["loaded"]);
 const product = ref({});

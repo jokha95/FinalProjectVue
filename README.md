@@ -1,8 +1,19 @@
-# Vue 3 + Vite
+Final project of vue js module
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+build a SPA (Single Page Application) using the Vue framework
 
-## Recommended IDE Setup
+sections in side it :
+Landing page (home)
+List view (loading async data from API)
+Detail view (loading async data from API)
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
-# Final-project-vue-course
+Main technology used
+veu js
+css
+java script
+
+Installation
+Clone the project
+Run npm install
+
+Run npm run dev

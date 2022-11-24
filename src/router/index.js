@@ -3,6 +3,7 @@ import HomePage from "../views/HomePage.vue";
 import AboutPage from "../views/AboutPage.vue";
 // import productInfo from "../components/productInfo.vue";
 // import DetailPage from "../components/productDetail.vue";
+const StarRating = () => import("../components/StarRating.vue");
 
 const productListPage = () => import("../views/productListPage.vue");
 const productDetaPage = () => import("../views/productDetailPage.vue");
@@ -29,7 +30,10 @@ const routes = [
     path: "/products/:id",
     component: productDetaPage,
     props: true,
-    children: [{ path: "", name: "product-info", component: productInfo }],
+    children: [
+      { path: "", name: "product-info", component: productInfo },
+      { path: "star", name: "star-rating", component: StarRating },
+    ],
   },
 ];
 
