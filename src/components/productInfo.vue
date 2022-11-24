@@ -11,7 +11,7 @@ const productRef = toRef(props, "product");
       </h2>
       <h2 style="color: hsl(264, 87%, 35%)"># brand: {{ productRef.brand }}</h2>
       <h2 style="color: hsl(264, 87%, 35%)">
-        # rating: {{ productRef.rating }}
+        # rating😍: {{ productRef.rating }}
       </h2>
       <h2 style="color: hsl(264, 87%, 35%)">
         # category: {{ productRef.category }}
