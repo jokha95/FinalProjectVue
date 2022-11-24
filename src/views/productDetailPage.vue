@@ -2,10 +2,10 @@
 import { ref } from "vue";
 import productDetail from "../components/productDetail.vue";
 const { id } = defineProps(["id"]);
-const film = ref({});
+const product = ref({});
 
 function setcount(m) {
-  film.value = m;
+  product.value = m;
 }
 </script>
 <template>

@@ -1,6 +1,5 @@
 <script setup>
-import { walkBlockDeclarations } from "@vue/compiler-core";
-import { ref, onErrorCaptured, onMounted } from "vue";
+import { ref } from "vue";
 import router from "../router";
 const data = ref({});
 
@@ -31,18 +30,19 @@ function goto(id) {
       v-for="product in data.products"
       :key="product.id"
     >
+      <!-- @click="goto(product) -->
       <div class="card">
-        <img :src="product.thumbnail" @click="goto(product)" />
+        <img :src="product.thumbnail" />
         <RouterLink
-          :to="{ name: 'product-detail', params: { name: product.title } }"
+          :key="product.id"
+          :to="{ name: 'product-info', params: { id: product.id } }"
         >
           product detail
+          <div class="card-body">
+            <h2>products type :{{ product.title }}</h2>
+            <p>price: {{ product.price }}</p>
+          </div>
         </RouterLink>
-
-        <div class="card-body">
-          <h2>products type :{{ product.title }}</h2>
-          <p>price: {{ product.price }}</p>
-        </div>
       </div>
     </div>
   </section>

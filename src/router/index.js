@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "../views/HomePage.vue";
 import AboutPage from "../views/AboutPage.vue";
-import productInfo from "../components/productInfo.vue";
-import DetailPage from "../components/productDetail.vue";
+// import productInfo from "../components/productInfo.vue";
+// import DetailPage from "../components/productDetail.vue";
 
-// const productstPage = () => import("../views/productListPage.vue");
-// const productPage = () => import("../views/productDetailPage.vue");
-// const productInfo = () => import("../components/productInfo.vue");
+const productListPage = () => import("../views/productListPage.vue");
+const productDetaPage = () => import("../views/productDetailPage.vue");
+const productInfo = () => import("../components/productInfo.vue");
 const routes = [
   {
     path: "/",
@@ -19,19 +19,15 @@ const routes = [
     component: AboutPage,
   },
   {
-    path: "/product/:name",
-    name: "product-detail",
+    path: "/products",
+    name: "products",
     props: true,
-    component: DetailPage,
+    component: productListPage,
   },
-  //   {
-  //     path: "/",
-  //     name: "detil",
-  //     component: DetailPage,
-  //   },
+
   {
-    path: "/product/:id",
-    component: DetailPage,
+    path: "/products/:id",
+    component: productDetaPage,
     props: true,
     children: [{ path: "", name: "product-info", component: productInfo }],
   },
