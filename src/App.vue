@@ -1,10 +1,10 @@
 <script setup>
-import Todos from "./components/Todos.vue";
+import Todos from "./components/productList.vue";
 </script>
 
 <template>
   <header>
-    <h1>Countries API</h1>
+    <h1>Seeling products App by API</h1>
 
     <RouterLink to="/">Home<br /></RouterLink> <br /><br />
     <RouterLink :to="{ name: 'about' }">about<br /></RouterLink>

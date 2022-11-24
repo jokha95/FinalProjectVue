@@ -1,41 +1,47 @@
 <script setup>
-import { ref } from "vue";
-import { useRouter } from "vue-router";
+import { walkBlockDeclarations } from "@vue/compiler-core";
+import { ref, onErrorCaptured, onMounted } from "vue";
+import router from "../router";
+const data = ref({});
 
-const router = useRouter();
-const countries = ref({});
+const options = {
+  method: "GET",
+};
+const res = await fetch("https://dummyjson.com/products", options);
 
-fetch("https://countriesnow.space/api/v0.1/countries/flag/images")
-  .then((response) => response.json())
-  .then((data) => {
-    //console.log(data.data[1].flag);
-    countries.value = data.data;
+console.log(res);
+
+if (!res.ok) {
+  throw new Error();
+}
+
+data.value = await res.json();
+function goto(id) {
+  router.push({
+    name: "product-info",
+    params: { id },
   });
-
-function goto(country) {
-  router.push({ name: "country-detail", params: { name: country.name } });
 }
 </script>
 
 <template>
-  <section class="countries">
+  <section class="products">
     <div
-      class="countries-wrapper"
-      v-for="(country, idx) in countries"
-      :key="idx"
+      class="products-wrapper"
+      v-for="product in data.products"
+      :key="product.id"
     >
       <div class="card">
-        <img :src="country.flag" @click="goto(country)" />
+        <img :src="product.thumbnail" @click="goto(product)" />
         <RouterLink
-          :to="{ name: 'country-detail', params: { name: country.name } }"
+          :to="{ name: 'product-detail', params: { name: product.title } }"
         >
-          country detail
+          product detail
         </RouterLink>
 
         <div class="card-body">
-          <h2>{{ country.name }}</h2>
-          <p>Alpha-2 code: {{ country.iso2 }}</p>
-          <p>Alpha-3 code: {{ country.iso3 }}</p>
+          <h2>products type :{{ product.title }}</h2>
+          <p>price: {{ product.price }}</p>
         </div>
       </div>
     </div>
@@ -55,7 +61,7 @@ header {
   font-size: 4vmin;
 }
 
-.countries {
+.products {
   min-height: 70vh;
   display: flex;
   justify-content: center;
