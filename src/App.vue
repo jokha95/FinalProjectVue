@@ -3,15 +3,6 @@ import Todos from "./components/productList.vue";
 </script>
 
 <template>
-  <!-- <input
-    class="form-control border-left-0 border shadow-none"
-    type="search"
-    placeholder="Search for a products"
-    style="border-radius: 0px 5px 5px 0px"
-    id="example-search-input"
-    v-on:input="debounceInput"
-    v-model="country_name"
-  /> -->
   <header>
     <h1>Seeling products App by API</h1>
 
@@ -24,12 +15,8 @@ import Todos from "./components/productList.vue";
   </div>
   <Suspense>
     <Todos class="async-component" />
-    <!-- <Layout class="async-component" /> -->
 
-    <template #fallback>
-      ...loading
-      <!-- <SimpleLoading class="async-component" /> -->
-    </template>
+    <template #fallback> ...loading </template>
   </Suspense>
 </template>
 <style>
