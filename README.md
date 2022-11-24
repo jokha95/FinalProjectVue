@@ -1,6 +1,8 @@
 Final project of vue js module
 
-build a SPA (Single Page Application) using the Vue framework
+To build a SPA (Single Page Application) using the Vue framework
+
+Am Creating App with a list to seeling products from diffrent Catagryes and prands you can go throught an also see the details about it
 
 sections in side it :
 Landing page (home)
@@ -13,7 +15,8 @@ css
 java script
 
 Installation
-Clone the project
-Run npm install
+1- Clone the project
 
-Run npm run dev
+2- Run npm install
+
+3- Run npm run dev

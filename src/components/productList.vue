@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from "vue";
 import router from "../router";
+const yearFilter = ref([]);
+const filterTitle = ref("");
 const data = ref({});
 
 const options = {
@@ -24,6 +26,18 @@ function goto(id) {
 </script>
 
 <template>
+  <!-- <div>
+    <label style="font-size: 15px" for=""> Type a product title: </label>
+    <input v-model="filterTitle" type="text" /> <br />
+    <label style="font-size: 15px" for=""> Select category </label>
+    <br />
+    <select name="" id="width" v-model="yearFilter" multiple>
+      <option v-for="year in moviesSnapshotYear">
+        {{ year }}
+      </option>
+    </select>
+  </div> -->
+
   <section class="products">
     <div
       class="products-wrapper"

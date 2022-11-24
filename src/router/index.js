@@ -3,7 +3,7 @@ import HomePage from "../views/HomePage.vue";
 import AboutPage from "../views/AboutPage.vue";
 // import productInfo from "../components/productInfo.vue";
 // import DetailPage from "../components/productDetail.vue";
-const StarRating = () => import("../components/StarRating.vue");
+const StarRating = () => import("../components/category.vue");
 
 const productListPage = () => import("../views/productListPage.vue");
 const productDetaPage = () => import("../views/productDetailPage.vue");
