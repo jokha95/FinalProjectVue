@@ -30,19 +30,22 @@ function goto(id) {
       v-for="product in data.products"
       :key="product.id"
     >
-      <!-- @click="goto(product) -->
       <div class="card">
-        <img :src="product.thumbnail" />
         <RouterLink
           :key="product.id"
           :to="{ name: 'product-info', params: { id: product.id } }"
         >
+          <img :src="product.thumbnail" />
+
           product detail
-          <div class="card-body">
-            <h2>products type :{{ product.title }}</h2>
-            <p>price: {{ product.price }}</p>
-          </div>
         </RouterLink>
+        <div class="card-body">
+          <h2>products type :{{ product.title }}</h2>
+          <h2 style="color: hsl(240, 3%, 6%)">price: {{ product.price }}</h2>
+          <h2 style="color: hsl(240, 3%, 6%)">
+            discountPercentage: {{ product.discountPercentage }}
+          </h2>
+        </div>
       </div>
     </div>
   </section>
@@ -53,7 +56,7 @@ function goto(id) {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  color: hsl(260, 100%, 99%);
 }
 
 header {
@@ -78,6 +81,7 @@ header {
   transition: 0.5s;
   overflow: hidden;
   margin: 0.85rem;
+  background-color: rgb(206, 190, 166);
 }
 
 .card:hover {

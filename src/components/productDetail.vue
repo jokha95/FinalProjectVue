@@ -32,7 +32,7 @@ async function fetchAPI(id) {
 
 <template>
   <div>
-    <h2>{{ product.brand }}</h2>
+    <!-- <h2>{{ product.brand }}</h2> -->
     <router-link :to="{ name: 'product-info' }"></router-link>
   </div>
 </template>
