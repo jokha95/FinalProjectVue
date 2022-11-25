@@ -40,7 +40,7 @@ const filteredMovies = computed(() => {
 </script>
 
 <template>
-  <label style="font-size: 15px" for=""> Entear a movie title: </label>
+  <label style="font-size: 15px" for=""> Entear a product title: </label>
 
   <input v-model="filterTitle" type="text" /> <br />
 
