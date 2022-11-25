@@ -1,8 +1,9 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import router from "../router";
 
 const data = ref({});
+const filterTitle = ref("");
 
 const options = {
   method: "GET",
@@ -22,9 +23,27 @@ function goto(id) {
     params: { id },
   });
 }
+const moviesSnapshot = computed(() => {
+  return filteredMovies.value;
+});
+
+function filterByTitle(film) {
+  if (filterTitle.value.length < 2) return true;
+  const lowerCaseTitle = filterTitle.value.toLowerCase();
+  return film.title.toLowerCase().includes(lowerCaseTitle);
+}
+
+const filteredMovies = computed(() => {
+  const fm = data.value.filter(filterByYear).filter(filterByTitle);
+  return fm;
+});
 </script>
 
 <template>
+  <label style="font-size: 15px" for=""> Entear a movie title: </label>
+
+  <input v-model="filterTitle" type="text" /> <br />
+
   <section class="products">
     <div
       class="products-wrapper"

@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "../views/HomePage.vue";
 import AboutPage from "../views/AboutPage.vue";
 
-const StarRating = () => import("../components/category.vue");
+// const StarRating = () => import("../components/category.vue");
 
 const productListPage = () => import("../views/productListPage.vue");
 const productDetaPage = () => import("../views/productDetailPage.vue");
@@ -31,7 +31,7 @@ const routes = [
     props: true,
     children: [
       { path: "", name: "product-info", component: productInfo },
-      { path: "star", name: "star-rating", component: StarRating },
+      // { path: "star", name: "star-rating", component: StarRating },
     ],
   },
 ];
